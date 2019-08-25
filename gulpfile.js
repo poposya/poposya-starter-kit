@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const del = require('del');
+const sass = require('gulp-sass');
 // set env via $ gulp --type production
 const environment = $.util.env.type || 'development';
 const isProduction = environment === 'production';
@@ -53,6 +54,14 @@ const stylusTask = function() {
     .pipe(reload({ stream:true }));
 };
 
+const stylesTask = function () {
+  return gulp.src(app + 'sass/main.scss')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(gulp.dest(dist + 'css/'))
+      .pipe($.size({ title : 'css' }))
+      .pipe(reload({ stream:true }));
+};
+
 const serveTask = function() {
   browserSync({
     server: {
@@ -68,14 +77,16 @@ const imagesTask = function(){
 };
 
 const watchTask = function(){
-  gulp.watch(app + 'stylus/*.styl', ['styles']);
+  // gulp.watch(app + 'stylus/*.styl', ['sass']);
+  gulp.watch(app + 'sass/**/*.scss', ['sass']);
   gulp.watch(app + 'index.html', ['html']);
   gulp.watch(app + 'scripts/**/*.js', ['scripts']);
 };
 
 gulp.task('scripts', scriptsTask);
 gulp.task('html', htmlTask);
-gulp.task('styles', stylusTask);
+// gulp.task('sass', stylusTask);
+gulp.task('sass', stylesTask);
 gulp.task('serve', serveTask);
 gulp.task('images', imagesTask);
 gulp.task('watch', watchTask);
@@ -93,7 +104,9 @@ gulp.task('build', ['clean'], function(){
   imagesTask();
   htmlTask();
   scriptsTask();
-  stylusTask();
+  // stylusTask();
+  stylesTask();
+
 
   return true;
 });

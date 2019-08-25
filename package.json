@@ -1,12 +1,12 @@
 {
-  "name": "starterkit-webapp",
+  "name": "poposya-starter-kit",
   "version": "0.1.0",
-  "description": "Lightweight starting point for a web app.",
+  "description": "Lightweight starting kit for a web app.",
   "main": "index.html",
   "scripts": {
     "start": "gulp"
   },
-  "author": "@moklick <mo@webkid.io>",
+  "author": "@poposya",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.9.0",
@@ -30,6 +30,7 @@
     "lodash.assign": "^4.0.9",
     "merge": "^1.2.0",
     "webpack": "^1.13.1",
-    "webpack-stream": "^3.2.0"
+    "webpack-stream": "^3.2.0",
+    "gulp-sass": "^4.0.2"
   }
 }

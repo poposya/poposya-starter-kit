@@ -1,13 +1,13 @@
 # Starterkit
 
-This webapp starterkit provides a prepared development environment based on [gulp](https://github.com/gulpjs/gulp), [stylus](https://github.com/LearnBoost/stylus) and [webpack](https://github.com/webpack/webpack).
+This webapp starterkit provides a prepared development environment based on [gulp](https://github.com/gulpjs/gulp), [scss](https://github.com/sass/sass) and [webpack](https://github.com/webpack/webpack).
 
 ## Installation
 
 Install all dependencies. 
 
 ```
-$ npm install
+$ npm i
 ```
 
 
@@ -20,9 +20,9 @@ $ gulp
 ```
 
 Javascript entry file: `app/scripts/main.js` <br />
-CSS entry file: `app/stylus/main.styl`<br />
+CSS entry file: `app/scss/main.scss`<br />
 
-If you want to use third-party CSS you just include it via `@import 'path/to/your/third-party-styles.css'` at the top of the main.styl file.
+If you want to use third-party CSS you just include it via `@import 'path/to/your/third-party-styles.css'` at the top of the main.scss file.
 
 
 
